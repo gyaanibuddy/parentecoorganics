@@ -1,0 +1,66 @@
+
+<div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_1.jpg');">
+  <div class="row no-gutters slider-text align-items-center justify-content-center">
+    <div class="col-md-9 ftco-animate text-center">
+     <span>Order History</span>
+    
+    </div>
+  </div>
+</div>
+
+<div class="container p-5">
+  <h1 class="text-center mt-5 mb-5">Placed Orders</h1>
+  <div *ngIf = "ProductsData?.length else elseBlock">
+    <div class="accordion" id="accordionExample"><!--ngfor loop started for dynamic data -->
+      <div class="accordion-item" *ngFor="let dt of ProductsData; index as i">
+        <h2 class="accordion-header" [id]="'heading'+i">
+       
+          <button class="accordion-button" [ngClass]="{ 'collapsed': i != 0 }" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse'+i" aria-expanded="true" [attr.aria-controls]="'collapse'+i">
+           <div class="d-flex flex-row bd-highlight mb-3">
+              <div class="p-2 bd-highlight">{{dt.modifiedOn | date}} </div>
+              <div class="p-2 bd-highlight"><p>{{dt.status}}</div>
+            </div>
+          </button>
+
+        </h2>
+        <div [id]="'collapse'+i" class="accordion-collapse collapse" [ngClass]="{ 'show': i == 0 }" [attr.aria-labelledby]="'heading'+i" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+           <table class="table-bordered">
+               <thead>
+                   <tr>
+                    <th></th>
+                      <th>Name</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                   </tr>
+               </thead>
+              <tbody>
+                 
+                   
+                  <tr  *ngFor="let dp of dt.products; index as j">
+                  <td>  </td>
+                  <td>{{dp.productId.name}}  </td>
+                  <td>{{dp.quantity}}</td>
+                  <td>{{dp.productId.price}}</td>
+                  </tr>
+                 
+              </tbody>
+            </table>
+            <div class="d-flex flex-row-reverse bd-highlight" style="padding-right: 10%" *ngIf="dt.status=='process' || dt.status=='package'">
+              <div class="p-2 bd-highlight">
+                <a type="button" class="btn btn-primary" (click)="cancelOrder(dt._id)">Cancel Order</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+     
+    </div>
+   
+  </div>
+   <ng-template #elseBlock> 
+      <div class="d-flex justify-content-center">
+        <strong>No data found</strong>
+      </div>
+    </ng-template>

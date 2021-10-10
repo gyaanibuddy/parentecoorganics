@@ -1,0 +1,74 @@
+<div class="container p-5">
+  <h1 class="text-center mt-5 mb-5">Placed Orders</h1>
+  <div class="accordion" id="accordionExample"  *ngIf="OrdersData?.length; else elseBlock">
+      <div class="accordion-item" *ngFor="let dt of OrdersData; index as i">
+        <h2 class="accordion-header" [id]="'heading'+i">
+          <button class="accordion-button" [ngClass]="{ 'collapsed': i != 0 }" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse'+i" aria-expanded="true" [attr.aria-controls]="'collapse'+i">
+            <div class="d-flex flex-row bd-highlight mb-3">
+              <div class="p-2 bd-highlight">{{dt.owner.username}} </div>
+              <div class="p-2 bd-highlight">{{dt.modifiedOn | date}} </div>
+              <br><br>
+              <div class="p-2 bd-highlight"><p>{{dt.delieveryAddress.addr1}}</div>
+               
+            </div>
+          </button>
+        </h2>
+        <div [id]="'collapse'+i" class="accordion-collapse collapse" [ngClass]="{ 'show': i == 0 }" [attr.aria-labelledby]="'heading'+i" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+           <table class="table-bordered">
+              <thead>
+                   <tr>
+                    <th></th>
+                      <th>Name</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                   </tr>
+               </thead>
+              <tbody>
+                <tr  *ngFor="let dp of dt.products; index as j">
+                  <td>  </td>
+                  <td>{{dp.productId.name}}  </td>
+                  <td>{{dp.quantity}}</td>
+                  <td>{{dp.productId.price}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>{{dt.status}}</p>
+            <div class="d-flex flex-row-reverse bd-highlight" style="padding-right: 10%">
+
+               <div class="p-2 bd-highlight">
+                <a type="button" class="btn btn-primary " (click)="delieverOrder(dt._id)">Deliever</a>
+              </div>
+
+              <div class="p-2 bd-highlight" >
+                  <ng-select [items]="status"
+                            (change)="updateStatus(dt._id)"
+                             placeholder="Select status : "
+                             [(ngModel)]="selectedStatus"
+                            style="border: 10px;">
+                  </ng-select>
+              </div>
+             
+            </div>
+
+
+          
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+     <ng-template #elseBlock> 
+      <div class="d-flex justify-content-center">
+        <strong>No data found</strong>
+      </div>
+    </ng-template>
+   
+</div>
+
+
+
+<!--  <pre>
+                      Selected staus: {{selectedStatus | json}}
+                  </pre> -->

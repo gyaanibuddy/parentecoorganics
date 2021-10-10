@@ -1,0 +1,94 @@
+<div class='container-fluid'>
+   <div>
+    <ngb-alert [type]='type' *ngIf="error" (close)="error=false">
+      <strong>Error!</strong>  {{message}}
+    </ngb-alert>
+  </div>
+  <div>
+    <ngb-alert [type]='type' *ngIf="done" (close)="done=false ">
+      <strong>Success!</strong> {{message1}}
+    </ngb-alert>
+  </div>
+	<div class='row'>
+		<div class='col-xl-4 col-sm-12 mb-2'>
+			<div class="card">
+        <h4 class="card-header">Add Product </h4>
+        <div class="card-body">
+          <form [formGroup]="productForm">
+            <div class="form-group">
+            
+              <input type="text" class="form-control" placeholder="Name"  formControlName="name"/>
+             
+            </div>
+             <div class="form-group">
+            
+              <input type="textarea" class="form-control" placeholder="Description"  formControlName="description"/>
+             
+            </div>
+            <div class="form-group">
+                
+                <input type="number" class="form-control" placeholder="Price" formControlName="price">
+               
+            </div>
+           	<div class="form-group">
+               
+                <input type="number" class="form-control" formControlName="totalStock" placeholder="Stock">
+               
+            </div>
+           <div class="form-group">
+               
+                <input type="text" class="form-control" name="images" placeholder="Image Link">
+               
+            </div>
+            <div class="form-group">
+         isActive:      <input type="checkbox" formControlName="isActive" [(ngModel)]="checked" style="display: inline;" >
+</div>
+             <div class="form-group">
+                	<input type='hidden' formControlName="editId">
+            </div>
+            <button  class="btn btn-primary" (click)="onSubmit()">
+               
+                Save
+            </button>
+
+          </form>
+        </div>
+    	</div> <!-- card -->
+		</div> <!-- col -->
+		<div class='col-xl-8 col-sm-12'>
+
+      <div *ngIf="ProductsData">
+      <table class='table table-bordered table-striped table-sm' *ngIf="ProductsData" >
+
+          <tr>
+            <th>#</th>
+            <th> Name </th>
+            <th> Price </th>
+            <th> Stock</th>
+            
+          </tr>
+
+        <tbody>
+          
+
+          <tr *ngFor="let dt of ProductsData; index as i">
+            <td>{{i+1}} <p *ngIf="dt.isActive"><b> Active</b></p>
+              <p *ngIf="!dt.isActive"> InActive</p></td>
+            
+            <td>
+              {{dt.name}}<br>
+              {{dt.description}}
+
+            </td>
+            <td>{{dt.price}}</td>
+            <td>{{dt.totalStock}}</td>
+             <td><button class=" btn btn-primary" (click)="getSingleProduct(dt._id)">Edit</button></td>
+            <!-- <td> <button class=" btn btn-danger" (click)="delete(dt._id)">Delete</button></td>
+            -->
+          <tr>
+        </tbody>
+      </table>
+    </div>
+		</div>
+	</div>
+</div>

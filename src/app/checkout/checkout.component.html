@@ -1,0 +1,118 @@
+<!-- <div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_1.jpg');">
+	<div class="row no-gutters slider-text align-items-center justify-content-center">
+	  <div class="col-md-9 ftco-animate text-center">
+	  	
+	    <h1 class="mb-0 bread">Checkout</h1>
+	  </div>
+	</div>
+</div> -->
+
+	<div class="container">
+		<div class="row justify-content-center">
+		<div class="col-md-7 ">
+    		<div class="signup-content">
+        		<div class="signup-form">
+            		<h2 class="form-title">Billing Details</h2>
+             		<ng-select [items]="address"
+             		(change)="updateAddress()"
+           			placeholder="Select Address: "
+             		[(ngModel)]="selectedAddress"
+            		style="border: 10px;">
+				</ng-select>
+				<br><br>
+<form  class="register-form" id="register-form"  [formGroup]="addressForm" >
+                <div class="form-group">
+                    <label for="address"><i class="fa fa-address-card-o" aria-hidden="true"></i></label>
+                    <input type="address" name="address" id="address" placeholder="Address 1" formControlName="addr1" />
+                </div>
+                <div class="form-group">
+                   <label for="address"><i class="fa fa-address-card-o" aria-hidden="true"></i></label>
+                   <input type="address" name="address" id="address" placeholder="Address 2" formControlName="addr2"/>
+                </div>
+                
+                 <div class="form-group">
+                    <label for="city"><i class="fa fa-map-marker" aria-hidden="true"></i></label>
+                    <input type="city" name="city" id="city" placeholder="City" formControlName="city"/>
+                </div>
+                 <div class="form-group">
+                    <label for="state"><i class="fa fa-map-marker" aria-hidden="true"></i></label>
+                    <input type="state" name="state" id="state" placeholder="State" formControlName="state"/>
+                </div> 
+                <div class="form-group">
+                    <label for="code"><i class="fa fa-map-marker" aria-hidden="true"></i></label>
+                    <input type="code" name="code" id="code" placeholder="Postal Code" formControlName="postalCode"/>
+                </div>
+            </form>
+               	<a> UPI</a><br>
+               	<a>Card</a>
+        	</div>
+    	</div>
+	</div>
+	<div class="col-xl-5">
+  		<div class="row mt-5 pt-3">
+        <form action="#" class="info" [formGroup]="couponForm">
+  			<div class="col-md-12 d-flex mb-5">
+  				<div class="cart-total mb-3">
+    				<h3>Coupon Code</h3>
+					<p>Enter your coupon code if you have one</p>
+						
+            			<div class="form-group">
+              				
+                			<input type="text" class="form-control text-left px-3" placeholder="Coupon code" formControlName="code">
+              			</div>
+            	
+            		<br>
+            		<a class="btn btn-primary center" (click)="applyCoupon()" >  
+					Apply Coupon
+					</a>
+         <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error1}}</div> 
+
+    			</div>	
+             		</div>
+
+  			<div class="col-md-12 d-flex mb-5">
+  				<div class="cart-detail cart-total p-3 p-md-4">
+		  			<h3 class="billing-heading mb-4">Cart Total</h3>
+		  			<p class="d-flex">
+						<span>Subtotal</span>
+						<span>&#8377; 20.60</span>
+					</p>
+					<p class="d-flex">
+						<span>Delivery</span>
+						<span>&#8377; 0.00</span>
+					</p>
+					<p class="d-flex">
+						<span>Discount</span>
+						<span>&#8377; 3.00</span>
+					</p>
+					<hr>
+					<p class="d-flex total-price">
+						<span>Total</span>
+					<!-- 	&#8377;<span *ngIf="OrderData" formControlName="total" value="OrderData.total"></span> -->
+            <input formControlName="total" >
+					</p>
+				</div>
+		  	</div>						
+			<a class="btn btn-primary center" (click)="placeOrder()" >  
+				Place Order
+			</a>
+      </form>
+			<div style="padding-top: 10%">
+				<ngb-alert [type]='"success"' *ngIf="done" (close)="done=false">
+				<strong>Order Placed</strong> 
+				</ngb-alert>
+			</div>		
+    
+  		</div>
+  	</div>
+	</div>
+
+<!-- </div> -->
+      
+   
+   
+
+		
+  
+
+

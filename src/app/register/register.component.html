@@ -1,0 +1,72 @@
+<div class="main">        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form  class="register-form" id="register-form"  [formGroup]="registration" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label for="name"><i class="fa fa-user"></i></label>
+                                <input type="text" name="fname" id="name" placeholder="First Name" formControlName="firstName"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="fa fa-user"></i></label>
+                                <input type="text" name="lname" id="name" placeholder="Last Name" formControlName="lastName"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email" formControlName="username"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="address"><i class="fa fa-address-card-o" aria-hidden="true"></i></label>
+                                <input type="address" name="address" id="address" placeholder="Your Address" formControlName="addr1"/>
+                            </div>
+                            <div class="form-group">
+                               
+                                <input type="hidden" name="address" id="address" placeholder="Your Address" formControlName="addr2"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="city"><i class="fa fa-map-marker" aria-hidden="true"></i></label>
+                                <input type="city" name="city" id="city" placeholder="City" formControlName="city"/>
+                            </div>
+                             <div class="form-group">
+                                <label for="state"><i class="fa fa-map-marker" aria-hidden="true"></i></label>
+                                <input type="state" name="state" id="state" placeholder="State" formControlName="state"/>
+                            </div> 
+                            <div class="form-group">
+                                <label for="code"><i class="fa fa-map-marker" aria-hidden="true"></i></label>
+                                <input type="code" name="code" id="code" placeholder="Postal Code" formControlName="postalCode"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact"><i class="fa fa-phone-square" aria-hidden="true"></i></label>
+                                <input type="contact" name="contact" id="contact" placeholder="Contact Number" formControlName="contactNo"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="fa fa-unlock-alt"></i></label>
+                                <input type="password" name="pass" id="pass" placeholder="Password" formControlName="password"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="fa fa-unlock-alt"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" formControlName="rePassword"/>
+                            </div>
+                            
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="assets/images/signup-image.jpg" alt="sing up image"></figure>
+                        <a href="signin.html" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
