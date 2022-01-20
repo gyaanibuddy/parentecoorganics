@@ -1,0 +1,113 @@
+<!-- <div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_1.jpg');">
+	<div class="row no-gutters slider-text align-items-center justify-content-center">
+	  <div class="col-md-9 ftco-animate text-center">
+	  	
+	    <h1 class="mb-0 bread">Checkout</h1>
+	  </div>
+	</div>
+</div> -->
+
+	<div class="container">
+		<div class="row justify-content-center">
+		<div class="col-md-7 ">
+    		<div class="signup-content">
+        		<div class="signup-form">
+            		<h2 class="form-title">Billing Details</h2>
+                <div *ngIf="OrderData.data[0].owner.primaryAddress.addr1">
+             		<ng-select [items]="address"
+             		(change)="updateAddress()"
+           			placeholder="Select Address: "
+             		[(ngModel)]="selectedAddress"
+            		style="border: 10px;">
+				</ng-select>
+        </div>
+				<br><br>
+<form  class="register-form" id="register-form"  [formGroup]="addressForm" >
+                <div class="form-group">
+                    <label for="address"><i class="fa fa-address-card-o" aria-hidden="true"></i></label>
+                    <input type="address" name="address" id="address" placeholder="Address 1" formControlName="addr1" />
+                </div>
+                <div class="form-group">
+                   <label for="address"><i class="fa fa-address-card-o" aria-hidden="true"></i></label>
+                   <input type="address" name="address" id="address" placeholder="Address 2" formControlName="addr2"/>
+                </div>
+                
+                 <div class="form-group">
+                    <label for="city"><i class="fa fa-map-marker" aria-hidden="true"></i></label>
+                    <input type="city" name="city" id="city" placeholder="City" formControlName="city"/>
+                </div>
+                 <div class="form-group">
+                    <label for="state"><i class="fa fa-map-marker" aria-hidden="true"></i></label>
+                    <input type="state" name="state" id="state" placeholder="State" formControlName="state"/>
+                </div> 
+                <div class="form-group">
+                    <label for="code"><i class="fa fa-map-marker" aria-hidden="true"></i></label>
+                    <input type="code" name="code" id="code" placeholder="Postal Code" formControlName="postalCode"/>
+                </div>
+                 <div class="form-group">
+                    <label for="code"><i class="fa fa-map-marker" aria-hidden="true"></i></label>
+                    <input type="code"  placeholder="contactNo" formControlName="contactNo"/>
+                </div>
+            </form>
+            <div *ngIf="!OrderData.data[0].owner.primaryAddress.addr1">
+               <a class="btn btn-primary center" (click)="updatePrimaryAddress()" >  
+        Save this as Primary Address
+      </a>
+            </div>
+        	</div>
+    	</div>
+	</div>
+	<div class="col-xl-5">
+		<div class="row mt-5 pt-3">
+      <form action="#" class="info" [formGroup]="couponForm">
+			 
+  			<div class="col-md-12 d-flex mb-5">
+  				<div class="cart-detail cart-total p-3 p-md-4">
+		  			<h3 class="billing-heading mb-4">Cart Total</h3>
+		  			<p class="d-flex justify-content-between">
+						  <span>Subtotal</span>
+						  <span>&#8377; 20.60</span>
+					  </p>
+					<p class="d-flex justify-content-between">
+						<span>Delivery</span>
+						<span>&#8377; 0.00</span>
+					</p>
+					<p class="d-flex justify-content-between">
+						<span>Discount</span>
+						<span>&#8377; 3.00</span>
+					</p>
+					<hr>
+					<p class="d-flex total-price justify-content-between">
+						<span>Total</span>
+						<span *ngIf="OrderData" formControlName="total" value="OrderData.total"></span>
+            &#8377; <input [disabled]='disabled' formControlName="total" >
+					</p>
+          <div class="d-flex justify-content-between">            
+            <a class="btn btn-primary center" (click)="showRazorpay()" >  Place Order </a>
+		    	</div>	
+        </div>
+		  </div>
+    </form>
+		<div style="padding-top: 3%">
+			<ngb-alert [type]='"success"' *ngIf="done" (close)="done=false">
+				<strong>Order Placed</strong> 
+			</ngb-alert>
+		</div>	
+     <div style="padding-top: 3%">
+      <ngb-alert [type]='"danger"' *ngIf="done2" (close)="done2=false">
+      <strong>Select Valid Address</strong> 
+      </ngb-alert>
+    </div>  
+  </div>
+</div>
+</div>
+
+<!-- </div> -->
+      
+   
+   
+
+		
+  
+
+
