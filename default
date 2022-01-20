@@ -1,0 +1,16 @@
+
+server {
+  charset utf-8;
+  listen 80 default_server;
+  server_name _;
+
+  # angular app & front-end files
+  location /home/ubuntu/veg {
+	 try_files $uri $uri/ /index.html;
+  }
+
+  # node api reverse proxy
+  location /api/ {
+    proxy_pass http://localhost:9001/;
+  }
+}
