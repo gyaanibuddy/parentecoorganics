@@ -1,0 +1,100 @@
+<div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_1.jpg');">
+  <div class="row no-gutters slider-text align-items-center justify-content-center">
+    <div class="col-md-9 ftco-animate text-center">
+       <h1 class="mb-0 bread">Cart</h1>
+    </div>
+  </div>
+</div>
+<div class="categories-shop">
+  <div class="row justify-content-center mb-3 pb-3">
+    <div class="col-md-12 heading-section text-center ftco-animate">
+      <h2 class="mb-4" style="padding-top: 10px;">Shopping Cart</h2>
+      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+    </div>
+  </div>  
+</div>
+<div class='container-fluid' style="padding-left: 10%;padding-right: 10%;">
+  <div class='row'>
+    <div class='col-md-8 col-sm-12'>
+        <div *ngIf="CartData?.length">
+          <div *ngIf="CartData[0].products?.length">
+            <ul class="list-unstyled mb-1" *ngFor="let dt of CartData[0].products; index as i" >
+              <li class='media'>
+                <div class='media-body p-2'>
+                  <div class='d-flex flex-row justify-content-between'>
+                    <div>
+                      <h5 class="card-title flex-fill flex-grow-1" >
+                     <span> {{i+1}}. {{dt.productId.name}}</span> 
+                      <span  class="text-muted" ><br> <br> &#8377; {{dt.productId.price}}</span>
+                      </h5>
+                      <div class='text-right mt-2'>
+                        <div class="d-flex justify-content-left">
+                          <div class="_p-qty row p-2">
+                              <a class="value-button decrease_" value="Decrease Value" (click)="minus(CartData[0].products[i].quantity, dt.productId._id)">-</a>
+                             <input type="number" class="input" name="quantity" id="number" value={{CartData[0].products[i].quantity}}  />
+                              <a class="value-button increase_"  value="Increase Value" (click)="plus(CartData[0].products[i].quantity, dt.productId._id)">+</a>
+                          </div>
+                          <div class ="p-2">
+                            <button class=" btn btn-danger" (click)="open(content,CartData[0]._id,dt.productId._id)">Remove</button> 
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <h3 class='flex-shrink-1 minWidth'> &#8377; {{dt.productId.price *  CartData[0].products[i].quantity}} </h3>
+                </div>
+              </div> <!-- media-body -->
+            </li><hr style="color: #000">
+          </ul>
+          
+        </div>
+       
+      </div>
+       <ng-template #elseBlock> 
+      <div class="d-flex justify-content-center">
+    <strong>No Product Added in Cart</strong></div>
+  </ng-template>
+    </div>
+      <div class="col-md-4">
+    <div class="row mt-5 pt-3">
+      <form action="#" class="info" [formGroup]="couponForm">
+        <div class="d-flex mb-5">
+          <div class="cart-total mb-3">
+            <h3>Coupon Code</h3>
+            <p>Enter your coupon code if you have one</p>
+            
+              <div class="form-group">          
+                <input type="text" class="form-control text-left px-3" placeholder="Coupon code" formControlName="code" value={{coupon}}>
+              </div>
+              <br>
+              <a class="btn btn-primary center" (click)="applyCoupon()" >  Apply Coupon </a>
+              <div style="padding-top:5% ">
+                <ngb-alert [type]='"success"' *ngIf="done" (close)="done=false">
+                  <strong>Coupon applied</strong> 
+                </ngb-alert>
+              </div>
+            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div> 
+          </div>  
+        </div>
+      </form>
+  </div>
+  <div *ngIf="CartData?.length">
+    
+ 
+  <div class="center" *ngIf="CartData[0].products?.length; else elseBlock">
+    <a class="btn btn-primary center" (click)="checkout()" >  
+       CheckOut
+    </a>
+  </div>
+   </div>
+</div>
+<ng-template #content let-modal>
+  <div class="abcd" style="border-radius: 1px; padding: 2px;">
+  <div class="" > <h4>Are you sure to delete this ?</h4>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="modal.close('cross')">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('save')">Yes</button>
+  </div>
+  </div>
+</ng-template>
+
