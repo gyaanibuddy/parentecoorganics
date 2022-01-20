@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card" style="padding: 5%">
+      <ng-select  [items]="field"
+                  (change)="updateField()"
+                  placeholder="Select Field Type: "
+                  [(ngModel)]="selectedField"
+                  style="border: 10px;">
+      </ng-select>
+      <br>
+      <form [formGroup]="dataForm">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Value"  formControlName="value"/> 
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Name"  formControlName="name"/> 
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Designation"  formControlName="designation"/>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Comment"  formControlName="comment"/> 
+        </div>
+         <div class="form-group">
+          <input type="hidden" class="form-control" placeholder="Comment"  formControlName="editId"/> 
+        </div>
+        
+        </form>
+
+<div *ngIf="ImageData">
+          <!-- <p>{{ImageData|json}}</p> -->
+         <ng-select  [items]="ImageData.data"
+                bindLabel="name"
+                (change)="updateImage()"
+                placeholder="Select Image Type: "
+                [(ngModel)]="selectedImage"
+                style="border: 10px;">
+            </ng-select>
+</div><br>
+         <button  class="btn btn-primary" (click)="onSubmit()">
+            Save
+        </button>
+     
+    </div>
+  </div>
+  <div class="col-md-8">
+       <div *ngIf="Data">
+      <table class='table table-bordered table-striped table-sm' *ngIf="Data" >
+          <tr>
+            <th>#</th>
+            <th> Name </th>
+            <th> Designation </th>
+            <th> Comment</th>
+            <th>Category</th>
+            <th>Image</th>
+          </tr>
+        <tbody>
+          <tr *ngFor="let dt of Data.data; index as i">
+            <td>{{i+1}}</td>
+            <td>
+                {{dt.name}}</td>
+              <td>{{dt.designation}}
+            </td>
+            <td>{{dt.comment}}</td>
+             <td>{{dt.category}}</td>
+             <td>{{dt.image}}</td>
+             <td><button class=" btn btn-primary" (click)="getSingleData(i)">Edit</button></td>
+          <tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
