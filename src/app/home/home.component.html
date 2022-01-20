@@ -1,0 +1,326 @@
+<ngb-carousel *ngIf="ImageMiscData">
+  <ng-template ngbSlide *ngFor="let dt of ImageMiscData">
+    <div class="picsum-img-wrapper">
+      <img src="images/{{dt.name}}" alt="Random first slide">
+    </div>
+  </ng-template>
+</ngb-carousel>
+<div class='container-fluid'>
+  <div class = "row justify-content-center">
+    <div class="col-md-12 col-12">
+      <div id="vegetable" class="vegetable">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12">
+              <div class="vegetable_shop">
+                <h3>Parent Eco Organics</h3>
+                <p *ngIf="Data">{{Data.homeText}}</p>
+              </div>
+            </div>
+             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-12" *ngIf="HomeImage?.length">
+              <div class="vegetable_img">
+               <figure><img src="images/{{HomeImage[0].name}}" alt="#"/></figure>
+               <span>01</span>
+              </div>
+            </div>
+             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12" *ngIf="HomeImage?.length">
+              <div class="vegetable_img margin_top">
+               <figure><img src="images/{{HomeImage[1].name}}" alt="#"/></figure>
+               <span>02</span>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-sm-6">
+        <div class="ftco-section">
+            <div class="row no-gutters ftco-services">
+              <div class="col-md-3 col-sm-6 text-center d-flex align-self-stretch ftco-animate">
+              <div class="media block-6 services mb-md-0 mb-4">
+                <div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+                      <span class="flaticon-award" style="transform: rotate(-45deg);"></span>
+                </div>
+                <div class="media-body">
+                  <h3 class="heading" style="padding-top: 10px;">Superior Quality</h3>
+                  <span>Quality Products</span>
+                </div>
+              </div>      
+              </div>
+              <div class="col-md-3 col-sm-6 text-center d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services mb-md-0 mb-4">
+                    <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+                      <span class="flaticon-diet" style="transform: rotate(-45deg);"></span>
+                </div>
+                <div class="media-body">
+                  <h3 class="heading" style="padding-top: 10px;">Always Fresh</h3>
+                  <span>Product well package</span>
+                </div>
+              </div>    
+              </div>
+              <div class="col-md-3 col-sm-6 text-center d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services mb-md-0 mb-4">
+                    <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2" >
+                        <span class="flaticon-shipped" style="transform: rotate(-45deg);"></span>
+                    </div>
+                    <div class="media-body">
+                      <h3 class="heading" style="padding-top: 10px;">Fast Delievery</h3>
+                      <span>Within 24 Hours</span>
+                    </div>
+                </div>      
+              </div>
+              <div class="col-md-3 col-sm-6 text-center d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services mb-md-0 mb-4">
+                    <div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+                        <span class="flaticon-customer-service" style="transform: rotate(-45deg);"></span>
+                    </div>
+                    <div class="media-body">
+                      <h3 class="heading" style="padding-top: 10px;">Support</h3>
+                      <span>24/7 Support</span>
+                    </div>
+                </div>      
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12 heading-section text-center ftco-animate">
+      <div class="categories-shop">
+          <span class="subheading">Featured Products</span>
+               <h2 class="mb-4">Our Products</h2>
+              <p>Vegetables for smart ones..!</p>
+      </div>
+    </div> 
+  </div>
+     
+  <br>
+<div *ngIf="ProductsData">
+ <div style="padding-right: 20%; padding-left: 20%;">
+    <ngb-alert [type]='"success"' *ngIf="done" (close)="done=false">
+      <strong>Added to Cart</strong> 
+    </ngb-alert>
+  </div>
+      </div>
+  <div class="row justify-content-center">
+    <div class="row justify-content-center" >
+    <div   style="width:17rem;" *ngFor="let dt of ProductsData; index as i">
+      <div class="card" >
+          <a href="/productdetail/{{dt.productId._id}}" style="text-decoration: none"> 
+          <img src="images/{{dt.name}}" alt="...">
+          </a> 
+        <!-- <iframe src="images/{{dt.images[0]}}"></iframe> -->
+              <div class="card-body">
+              <h5 class="card-title text-dark" style="text-decoration: none" >{{dt.productId.name}}</h5>
+                 <a class="btn1" *ngIf="user" (click)="addToCart(dt.productId._id)">
+                   <i class="fa fa-2x fa-shopping-cart"></i>
+                 </a> 
+            
+             <!--  <a href="/productdetail/{{dt.productId._id}}" class="btn1">
+
+                   <i class="fa fa-2x fa-info-circle"></i> -->
+                 </div>
+              
+             
+            </div>
+            <ng-template #elseBlock>
+              <p>Erfd</p>
+            </ng-template>
+          
+        </div>
+      </div>
+</div>
+  </div>
+  
+  <div class="center">
+    <a href = '/ourproducts' type="button" class="btn btn-primary" style="padding-right: 10px" >View More</a>
+
+    <a *ngIf="user" href = '/getCart' type="button" class="btn btn-primary" style="padding-right: 10px;margin-left: 10px;" >View Cart</a>
+ 
+    <!-- <a *ngIf="user" href = '/getCart' type="button" class="btn btn-primary" style="padding-right: 10px;margin-left: 10px;">View Cart</a> -->
+   
+  </div>
+  <div class="center" *ngIf="!user">
+    <p>Register/Login to add products to Cart</p>
+  </div>
+
+  <br><br><br><br>
+
+
+
+
+        <!-- <section class="ftco-section ftco-category ftco-no-pt">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-6 order-md-last align-items-stretch d-flex">
+                <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url(assets/images/category.jpg);">
+                  <div class="text text-center">
+                    <h2>Vegetables</h2>
+                    <p>Protect the health of every home</p>
+                    <p><a href="#" class="btn btn-primary">Shop now</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(assets/images/category-1.jpg);">
+                  <div class="text px-3 py-1">
+                    <h2 class="mb-0"><a href="#">Fruits</a></h2>
+                  </div>
+                </div>
+                <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(assets/images/category-2.jpg);">
+                  <div class="text px-3 py-1">
+                    <h2 class="mb-0"><a href="#">Vegetables</a></h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(assets/images/category-3.jpg);">
+              <div class="text px-3 py-1">
+                <h2 class="mb-0"><a href="#">Juices</a></h2>
+              </div>    
+            </div>
+            <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(assets/images/category-4.jpg);">
+              <div class="text px-3 py-1">
+                <h2 class="mb-0"><a href="#">Dried</a></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+         -->
+      <!--   <div class="ftco-section img" id="section-counter" style="background-image: url(assets/images/bg_3.jpg);">
+       
+                <div class="row justify-content-end">
+              <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
+                  <span class="subheading">Best Price For You</span>
+                  <h2 class="mb-4">Deal of the day</h2>
+                  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+                  <h3><a href="#">Spinach</a></h3>
+                  <span class="price">$10 <a href="#">now $5 only</a></span>
+                  <div id="timer" class="d-flex mt-5">
+                          <div class="time" id="days"></div>
+                          <div class="time pl-3" id="hours"></div>
+                          <div class="time pl-3" id="minutes"></div>
+                          <div class="time pl-3" id="seconds"></div>
+                        </div>
+              </div>
+            </div>          
+          
+      </div>
+       -->
+ 
+<div class="ftco-section testimony-section img" style="color: #fff;">
+    <!-- 
+      <div class="container"> -->
+          <div class="row justify-content-center mb-5">
+              <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                <span class="subheading" style="color: #000">Testimonial</span>
+                <h2 class="mb-3" style="color: #000">Happy Clients</h2>
+              </div>
+          </div>
+          <!-- <div class="row ftco-animate">
+              <div class="col-md-12">
+                <div class="carousel-testimony owl-carousel ftco-owl">
+                    <div class="item">
+                      <div class="testimony-wrap py-4">
+
+                      <div class="text">
+                          <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                          <div class="d-flex align-items-center">
+                              <div class="user-img" style="background-image: url(assets/images/person_1.jpg)"></div>
+                              <div class="pl-3">
+                                    <p class="name">Roger Scott</p>
+                                    <span class="position">Marketing Manager</span>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                </div>
+              </div>
+            </div> -->
+  <owl-carousel-o [options]="customOptions" >
+    <ng-template carouselSlide  *ngFor="let dt of TestimonialImage; let index as i">
+        
+            <div class="item" >
+                <div class="testimony-wrap p-4 pb-5">
+                  <img src="images/{{dt.image}}" class="user-img mb-5">
+                  
+                  <div class="text text-center">
+                    <p class="mb-5 pl-4 line">{{dt.comment}}</p>
+                    <p class="name" style="color: #000;">{{dt.name}}</p>
+                    <span class="position" style="color: #000;">{{dt.designation}}</span>
+                  </div>
+                </div>
+        
+        </div>
+    </ng-template>
+  </owl-carousel-o>
+    
+    <!-- <ng-template carouselSlide>
+       <div class="item">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="user-img mb-5" style="background-image: url(assets/images/person_2.jpg)">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                  </div>
+                  <div class="text text-center">
+                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name" style="color: #000;">Garreth Smith</p>
+                    <span class="position" style="color: #000;">Marketing Manager</span>
+                  </div>
+                </div>
+              </div>
+    </ng-template>
+    <ng-template carouselSlide>
+        <div class="item">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="user-img mb-5" style="background-image: url(assets/images/person_2.jpg)">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                  </div>
+                  <div class="text text-center">
+                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name" style="color: #000;">Garreth Smith</p>
+                    <span class="position" style="color: #000;">Marketing Manager</span>
+                  </div>
+                </div>
+              </div>
+    </ng-template>
+    <ng-template carouselSlide>
+        <div class="item">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="user-img mb-5" style="background-image: url(assets/images/person_2.jpg)">
+                    <span class="quote d-flex align-items-center justify-content-center">
+                      <i class="icon-quote-left"></i>
+                    </span>
+                  </div>
+                  <div class="text text-center">
+                    <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name" style="color: #000;">Garreth Smith</p>
+                    <span class="position" style="color: #000;">Marketing Manager</span>
+                  </div>
+                </div>
+              </div>
+    </ng-template> -->
+
+        </div>
+      <!-- </div>
+    </div> -->
+     
+
+
+ <app-footer></app-footer>
