@@ -1,0 +1,193 @@
+.footer-main{
+  padding: 70px 0px;
+  background: #010101;
+}
+.footer-main hr{
+    border-top: 1px solid rgba(255,255,255,.6);
+
+}
+.footer-top-box{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.footer-top-box h4{
+    color: #ffffff;
+    position: relative;
+    font-size: 20px;
+}
+.footer-top-box h4::before {
+    border-bottom: 2px solid #b0b435;
+    content: "";
+    height: 3px;
+    width: 50%;
+    position: absolute;
+    bottom: 3px;
+    left: 0px;
+}
+.list-time{
+    margin-top: 15px;
+}
+.footer-top-box .list-time li{
+    color: #ffffff;
+    font-size: 16px;
+    display: block;
+    float: left;
+}
+
+
+ .footer-top-box p{
+     padding-bottom: 15px;
+     color: #cccccc;
+ }
+
+ .footer-top-box ul{
+     display: inline-block;
+}
+ .footer-top-box ul li {
+     float: left;
+     margin-right: 5px;
+}
+ .footer-top-box ul li a {
+     color: #ffffff;
+     display: inline-block;
+     width: 36px;
+     height: 36px;
+     border: 2px solid #ffffff;
+     text-align: center;
+     line-height: 32px;
+}
+ .footer-top-box ul li a:hover {
+     color: #b0b435;
+     border-color: #b0b435;
+}
+.footer-widget, .footer-link, .footer-link-contact{
+    margin-top: 15px;
+}
+ .footer-widget h4 {
+     color: #ffffff;
+     font-size: 16px;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+     margin-bottom: 20px;
+     position: relative;
+     font-weight: 700;
+}
+ .footer-widget h4::before {
+     border-bottom: 3px solid #b0b435;
+     content: "";
+     height: 3px;
+     width: 100%;
+     position: absolute;
+     bottom: 0px;
+     left: 0px;
+}
+ .footer-widget p {
+     color: #cccccc;
+     font-weight: 400;
+     font-size: 14px;
+     padding-bottom: 20px;
+}
+
+ .footer-link{
+}
+ .footer-link h4{
+     color: #ffffff;
+     font-size: 16px;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+     margin-bottom: 20px;
+     position: relative;
+     font-weight: 700;
+}
+ .footer-link h4::before {
+     border-bottom: 3px solid #b0b435;
+     content: "";
+     height: 3px;
+     width: 100%;
+     position: absolute;
+     bottom: 0px;
+     left: 0px;
+}
+ .footer-link ul li {
+     margin-right: 5px;
+}
+ .footer-link ul li a {
+     color: #ffffff;
+     text-align: left;
+     display: block;
+     line-height: 32px;
+     position: relative;
+     padding-left: 15px;
+     transition: all .3s ease-in-out;
+     -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+     -o-transition: all .3s ease-in-out;
+     -ms-transition: all .3s ease-in-out;
+}
+ .footer-link ul li a::before {
+     font-family: FontAwesome;
+     content: "\f105";
+     position: absolute;
+     left: 5px;
+     line-height: 35px;
+     font-size: 16px;
+     transition: all .3s ease-in-out;
+     -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+     -o-transition: all .3s ease-in-out;
+     -ms-transition: all .3s ease-in-out;
+}
+ .footer-link ul li a:hover::before {
+     left: 5px;
+}
+ .footer-link ul li a:hover {
+     color: #b0b435;
+     border-color: #b0b435;
+     padding-left: 20px;
+}
+ .footer-link-contact h4{
+     color: #ffffff;
+     font-size: 16px;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+     margin-bottom: 20px;
+     position: relative;
+     font-weight: 700;
+}
+ .footer-link-contact h4::before {
+     border-bottom: 3px solid #b0b435;
+     content: "";
+     height: 3px;
+     width: 100%;
+     position: absolute;
+     bottom: 0px;
+     left: 0px;
+}
+ .footer-link-contact ul li{
+     margin-bottom: 12px;
+}
+ .footer-link-contact ul li i{
+     position: absolute;
+     left: 0;
+     top: 5px;
+     padding-right: 6px;
+}
+ .footer-link-contact ul li p{
+     padding-left: 25px;
+     color: #cccccc;
+     position: relative;
+}
+ .footer-link-contact ul li p{
+     font-size: 16px;
+     color: #cccccc;
+     font-weight: 300;
+     padding-right: 16px;
+     line-height: 24px;
+}
+ .footer-link-contact ul li p a{
+     color: #cccccc;
+}
+ .footer-link-contact ul li p a:hover{
+     color: #b0b435;
+}
+
