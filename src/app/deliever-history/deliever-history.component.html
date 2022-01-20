@@ -1,0 +1,107 @@
+
+<div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_1.jpg');">
+  <div class="row no-gutters slider-text align-items-center justify-content-center">
+    <div class="col-md-9 ftco-animate text-center">
+     <span>Your orders</span>
+    
+    </div>
+  </div>
+</div>
+
+<ngb-alert [type]='"success"' *ngIf="done" (close)="done=false">
+      <strong>Added to Cart</strong> 
+</ngb-alert>
+<!-- 
+<div class="pb" style="padding: 50 100 50 100; margin-bottom: 1px;"  *ngFor="let dt of ProductsData; index as i">
+  <div class="panel-body" >
+    <div class="row" style="background: #eee;">
+      <div class="col-1 mx-auto"> </div>
+        <div class="col-11 ms-auto">
+          <div class="row">
+              <div class="col-12">
+                   <table class="table-bordered">
+                       <thead>
+                           <tr>
+                           	<th></th>
+                              <th>Name</th>
+                              <th>Quantity</th>
+                              <th>Price</th>
+                           </tr>
+                       </thead>
+                      <tbody>
+                         
+                           
+                          <tr  *ngFor="let dp of dt.products; index as j">
+                          <td>  </td>
+                          <td>{{dp.productId.name}}  </td>
+                          <td>{{dp.quantity}}</td>
+                          <td>{{dp.productId.price}}</td>
+                          </tr>
+                         
+                      </tbody>
+                   </table>
+                <br />
+              </div>
+              <div class="col-md-12" *ngIf = "ProductsData">{{dt.modifiedOn | date}} </div>
+              <div class="d-flex justify-content-end" style="padding-right: 10%;">
+                <div class="p-2">
+                  <a class="btn btn-primary" (click)="recurCart(dt._id)" >  
+                    Order Again
+                  </a>
+                </div>
+              </div>
+          </div>
+      </div>
+      </div>
+  </div>
+</div>
+ -->
+
+
+<div class="container p-5">
+  <h1 class="text-center mt-5 mb-5">Delievered Orders</h1>
+  <div *ngIf="ProductsData?.length ; else elseBlock">
+  <div class="accordion" id="accordionExample"><!--ngfor loop started for dynamic data -->
+      <div class="accordion-item" *ngFor="let dt of ProductsData; index as i">
+        <h2 class="accordion-header" [id]="'heading'+i">
+       
+          <button class="accordion-button" [ngClass]="{ 'collapsed': i != 0 }" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse'+i" aria-expanded="true" [attr.aria-controls]="'collapse'+i">
+           {{dt.modifiedOn | date}} 
+          </button>
+        </h2>
+        <div [id]="'collapse'+i" class="accordion-collapse collapse" [ngClass]="{ 'show': i == 0 }" [attr.aria-labelledby]="'heading'+i" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+           <table class="table-bordered">
+                       <thead>
+                           <tr>
+                            <th></th>
+                              <th>Name</th>
+                              <th>Quantity</th>
+                              <th>Price</th>
+                           </tr>
+                       </thead>
+                      <tbody>
+                         
+                           
+                          <tr  *ngFor="let dp of dt.products; index as j">
+                          <td>  </td>
+                          <td>{{dp.productId.name}}  </td>
+                          <td>{{dp.quantity}}</td>
+                          <td>{{dp.productId.price}}</td>
+                          </tr>
+                         
+                      </tbody>
+                   </table>
+          </div>
+        </div>
+      </div>
+     
+     
+    </div>
+   
+  </div>
+   <ng-template #elseBlock> 
+      <div class="d-flex justify-content-center">
+        <strong>No data found</strong>
+      </div>
+    </ng-template>
