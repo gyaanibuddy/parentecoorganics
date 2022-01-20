@@ -1,0 +1,100 @@
+<header class="">
+<div class="py-1 " style="background: #82ae46;">
+  <div class="row no-gutters d-flex  align-items-center px-md-0">
+    <div class="row d-flex align-items-center" id="xyz" style="margin-left: 5px;">
+      <div class="col-md pr-4 d-flex topper align-items-center"><!-- 
+          <div class="icon mr-2 d-flex justify-content-center align-items-center"></div> -->
+          <span class="text d-flex justify-content-center align-items-center" style="text-decoration: none;"><i class="fa fa-x fa-phone-square" aria-hidden="true" style="padding: 5px"></i><a href="tel:+919421331348" class="text-light">+91 94213 31348</a></span>
+      </div>
+      <div class="col-md pr-4 d-flex topper align-items-center" ><!-- 
+          <div class="icon mr-2 d-flex justify-content-center align-items-center"></div> -->
+          <span class="text d-flex justify-content-center align-items-center" ><i class="fa fa-envelope" aria-hidden="true" style="padding: 5px"></i><a href="mailto:connect@poshaqq.com" class="text-light" >connect@poshaqq.com</a></span>
+      </div>
+      <!-- <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+          <span class="text">3-5 Business days delivery &amp; Free Returns</span>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (max-width: 480px) {
+    #xyz{
+float:   left;
+}
+}
+</style>
+<!-- <div class="py-1 " style="background: #82ae46;">
+  <div class="row no-gutters d-flex  align-items-center px-md-0">
+  
+    <div class="row d-flex align-items-center">
+      <div class="col-md pr-4 d-flex topper align-items-center" style="float: right;">
+          <div class=" mr-2 d-flex justify-content-center align-items-center">
+            <i class="fa fa-x fa-phone-square" aria-hidden="true" style="padding: 5px; color:#fff;"  ></i>
+          </div>
+          <span class="text" style="text-decoration: none;"><a href="tel:+919421331348" class="text-light">+91 94213 31348</a></span>
+      </div>
+      <div class="col-md pr-4 d-flex topper align-items-center" style="float: right;">
+          <div class=" mr-2 d-flex justify-content-center align-items-center">
+            <i class="fa fa-envelope" aria-hidden="true" style="padding: 5px; color:#fff;"></i>
+          </div>
+          <span class="text" ><a href="mailto:connect@poshaqq.com" class="text-light" >connect@poshaqq.com</a></span>
+      </div>
+     
+    </div>
+  </div>
+</div>  -->
+
+
+
+
+   <!-- fixed-top -->
+<nav class="navbar navbar-expand-md navbar-light bg-light ftco_navbar ftco-navbar-light ">
+  <a class="navbar-brand" style="padding-left: 10%"><!-- <img src="assets/images/logo.ico" alt="" style="width:80px;height:70px;"> -->POSHAQQ</a>
+  <button class="navbar-toggler"  aria-controls="navbarContent" [attr.aria-expanded]="" aria-label="Toggle navigation" (click)="collapsed = !collapsed" style="border: none">
+   <!--  <span class="navbar-toggler-icon"></span> -->
+   <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+  </button>
+  <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+    <ul class="navbar-nav ml-auto" >
+
+      <li class="nav-item" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"  autoClose='true'> <a href="" class="nav-link">Home</a> </li>
+
+      <li class="nav-item" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"  autoClose='true'> <a href="/about" class="nav-link">About</a></li>
+
+      <li class="nav-item" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"  autoClose='true'><a href="/ourproducts" class="nav-link" >Our Products</a></li>
+
+      <li class="nav-item" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"  autoClose='true'><a href="/contact" class="nav-link" *ngIf="user">Contact</a></li>
+    
+      <li class="nav-item" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"  autoClose='true'><a href="/register" class="nav-link" *ngIf="!user">Register</a></li>
+             
+      <li class="nav-item" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"  autoClose='true'><a href="/login" class="nav-link" *ngIf="!user">Sign-In</a></li>
+              
+      <li class="nav-item" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"  autoClose='true'><a href="/getCart" *ngIf="user" class="nav-link"><i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i></a></li>
+     
+      <li class="nav-item" ngbDropdown *ngIf="user" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"  autoClose='true'>
+        <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="fa fa-2x fa-user" aria-hidden="true"></i></a>
+       
+        <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu" *ngIf="isAdmin">
+          <a ngbDropdownItem routerLink="/adminProduct" *ngIf="isAdmin"> Products </a>
+          <a ngbDropdownItem routerLink="/image" *ngIf="isAdmin">Images</a>
+          <a ngbDropdownItem routerLink="/data" *ngIf="isAdmin"> Data </a>
+          <a ngbDropdownItem routerLink="/adminPlaced" *ngIf="isAdmin"> Placed Orders </a>
+          <a ngbDropdownItem routerLink="/adminDelievered" *ngIf="isAdmin"> Delievered Orders </a>
+        </div>
+
+        <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu" *ngIf="isEndUser">
+            <a ngbDropdownItem routerLink="/placeHistory"> Placed Orders</a>
+            <a ngbDropdownItem routerLink="/delieverHistory"> Delievered Orders</a>
+        </div>
+      </li>
+
+      <li class="nav-item" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"  autoClose='true'><a (click)="logout()" *ngIf="user" class="nav-link"><i class="fa fa-2x fa-sign-out" aria-hidden="true"></i></a></li>
+    </ul>
+  </div>
+</nav>
+
+</header>
+<!-- <body style="padding-top: 50px;"> -->
+<router-outlet></router-outlet>
+<!-- </body> -->
