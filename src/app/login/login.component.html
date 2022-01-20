@@ -1,0 +1,61 @@
+<style>
+    label.error {
+  position: relative;
+  background: url("assets/images/unchecked.gif") no-repeat;
+  background-position-y: 3px;
+  padding-left: 20px;
+  display: block;
+  margin-top: 20px; }
+  body {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #222;
+  
+  font-weight: 400;
+  font-family: Poppins;
+  background:url("assets/images/bg.jpg");  }
+</style>
+
+ <div class="main">
+        <!-- Sing in  Form -->
+    <section class="sign-in">
+        <div class="container">
+            <div class="signin-content">
+                <div class="signin-image">
+                    <figure><img src="assets/images/signin-image.jpg" alt="sing up image"></figure>
+                    <a href="/register" class="signup-image-link">Create an account</a>
+                </div>
+
+                <div class="signin-form">
+                    <h2 class="form-title">Sign in</h2>
+                    <form method="POST" class="register-form" id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="your_name"><i class="fa fa-user"></i></label>
+                            <input type="text" name="your_name" id="your_name" formControlName="username" placeholder="Username"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="your_pass"><i class="fa fa-unlock-alt"></i></label>
+                            <input type="password" name="your_pass" id="your_pass" formControlName="password" placeholder="Password"/>
+                        </div>
+                      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div> 
+                     
+                        <div class="form-group form-button">
+                            <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                            
+                        </div>
+                    </form>
+                    <br>
+                      <div *ngIf="!user1" class="card-block">
+                           <button class="login-with-google-btn" (click)="signInwithGoogle()">  <!-- <i class="fa fa-2x fa-google" aria-hidden="true" style="background: #82ae46; color: #fff; border-radius: 2px; border: 0px solid #000; padding: 5px;"> </i> --> Sign in with Google</button>
+                        </div>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
+    
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
